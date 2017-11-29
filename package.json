@@ -1,0 +1,23 @@
+{
+  "name": "metalarchives-telegram-bot",
+  "version": "0.0.0",
+  "description": "metalarchives telegram bot",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.5.1",
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "telegraf": "^3.16.4",
+    "telegraf-i18n": "^6.0.4",
+    "telegraf-session-redis": "^5.0.0"
+  }
+}

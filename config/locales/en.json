@@ -1,0 +1,7 @@
+{
+  "lang_name": "English",
+  "start": "Hello ,\nto get started send /help\n\nor start searching for a band by sending /searchband",
+  "choose_lang": "Choose your language",
+  "lang_changed": "Language changed.",
+  "help": "Help"
+}
