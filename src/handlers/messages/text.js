@@ -27,7 +27,6 @@ const textHandler = (ctx) => {
         console.error(err);
         return reply(i18n.t('error'));
       });
-      break;
     default:
   }
 };
