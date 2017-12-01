@@ -30,4 +30,30 @@ const genBandResult = ({
   return { msgText, msgKeyboard };
 };
 
-module.exports = { genBandResult };
+const genBandInfo = (band) => {
+  const {
+    name,
+    genre,
+    country,
+    location,
+    themes,
+    status,
+    label,
+    formYear,
+    yearsActive,
+  } = band;
+
+  let bandInfo = `***${name}***\n`;
+  bandInfo += `${'='.repeat(name.length)}\n\n`;
+  bandInfo += `Genre: ***${genre}***\n\n`;
+  bandInfo += `Country: ***${country}***\n\n`;
+  bandInfo += `Location: ***${location}***\n\n`;
+  bandInfo += `Themes: ***${themes}***\n\n`;
+  bandInfo += `Status: ***${status}***\n\n`;
+  bandInfo += `Label: ***${label}***\n\n`;
+  bandInfo += `Formed in: ***${formYear}***\n\n`;
+  bandInfo += `Years active: ***${yearsActive}***`;
+  return bandInfo;
+};
+
+module.exports = { genBandResult, genBandInfo };

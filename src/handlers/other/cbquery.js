@@ -1,5 +1,5 @@
-const { searchBand } = require('../../helpers/interface');
-const { genBandResult } = require('../../helpers/genmessage');
+const { searchBand, getBand } = require('../../helpers/interface');
+const { genBandResult, genBandInfo } = require('../../helpers/genmessage');
 const { Extra } = require('telegraf');
 
 const cbQueryHandler = (ctx) => {
@@ -9,6 +9,7 @@ const cbQueryHandler = (ctx) => {
     answerCbQuery,
     editMessageText,
     reply,
+    replyWithMarkdown,
     session,
   } = ctx;
   const { data, message } = callbackQuery;
@@ -34,6 +35,18 @@ const cbQueryHandler = (ctx) => {
     } else {
       answerCbQuery(i18n.t('its_old'), false);
     }
+  }
+
+  if (data.startsWith('getBand:')) {
+    const bandId = Number(data.slice(8));
+    answerCbQuery();
+    getBand(bandId).then((res) => {
+      const bandInfo = genBandInfo(res);
+      replyWithMarkdown(bandInfo);
+    }).catch((err) => {
+      console.error(err);
+      reply(i18n.t('error'));
+    });
   }
 };
 

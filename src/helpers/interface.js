@@ -16,4 +16,11 @@ const searchBand = (query, startIndex = 0) => new Promise((resolve, reject) => {
   }).catch(err => reject(err));
 });
 
-module.exports = { searchBand };
+const getBand = bandId => new Promise((resolve, reject) => {
+  axios.get(`${API_URL}/bands/${bandId}`)
+    .then(({ data }) =>
+      resolve(data.data.band))
+    .catch(err => reject(err));
+});
+
+module.exports = { searchBand, getBand };
