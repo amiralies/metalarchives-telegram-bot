@@ -11,7 +11,7 @@ const genBandResult = ({
 
   bands.forEach((band, i) => {
     msgText = msgText.concat(`___${i + 1}___. ***${band.band_name}*** - (${band.band_genre}) : ___${band.band_country}___\n\n`);
-    const getBandAction = JSON.stringify({ type: 'get_band', payload: { bandId: band.band_id } });
+    const getBandAction = `getBand:${band.band_id}`;
     bandButtons.push(Markup.callbackButton((i + 1).toString(), getBandAction, false));
   });
 
