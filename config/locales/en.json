@@ -3,5 +3,11 @@
   "start": "Hello ,\nto get started send /help\n\nor start searching for a band by sending /searchband",
   "choose_lang": "Choose your language",
   "lang_changed": "Language changed.",
-  "help": "Help"
+  "help": "Help",
+  "search_band": "Ok, send me something to search like :\n\n***Nevermore***\n***Dream Theater***",
+  "not_found": "Nothing found for your query :(",
+  "error": "Something went wrong :(",
+  "its_old": "Its old a bit, try a new search",
+  "next": "Next",
+  "prev": "Previous"
 }

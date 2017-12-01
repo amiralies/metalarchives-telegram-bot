@@ -16,6 +16,7 @@
     "nodemon": "^1.12.1"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "bluebird": "^3.5.1",
     "mongoose": "^4.13.5",
     "telegraf": "^3.16.4",

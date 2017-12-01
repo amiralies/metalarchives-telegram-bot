@@ -24,6 +24,6 @@ mongoose.connect(config.DB_CONNECTION_STRING, { useMongoClient: true });
 bot.use(redisSession.middleware());
 bot.use(telegrafI18n.middleware());
 bot.use(middlewares);
-bot.use(handlers.commands, handlers.other);
+bot.use(handlers.commands, handlers.messages, handlers.other);
 
 bot.startPolling();
