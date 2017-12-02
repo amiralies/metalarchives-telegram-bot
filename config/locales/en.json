@@ -9,5 +9,7 @@
   "error": "Something went wrong :(",
   "its_old": "Its old a bit, try a new search",
   "next": "Next",
-  "prev": "Previous"
+  "prev": "Previous",
+  "photo": "Photo",
+  "logo": "Logo"
 }

@@ -1,5 +1,10 @@
 const { searchBand, getBand } = require('../../helpers/interface');
-const { genBandResult, genBandInfo } = require('../../helpers/genmessage');
+const {
+  genBandResult,
+  genBandInfo,
+  genBandPhoto,
+  genBandLogo,
+} = require('../../helpers/genmessage');
 const { Extra } = require('telegraf');
 
 const cbQueryHandler = (ctx) => {
@@ -10,6 +15,8 @@ const cbQueryHandler = (ctx) => {
     editMessageText,
     reply,
     replyWithMarkdown,
+    replyWithPhoto,
+    replyWithDocument,
     session,
   } = ctx;
   const { data, message } = callbackQuery;
@@ -41,8 +48,36 @@ const cbQueryHandler = (ctx) => {
     const bandId = Number(data.slice(8));
     answerCbQuery();
     getBand(bandId).then((res) => {
-      const bandInfo = genBandInfo(res);
-      replyWithMarkdown(bandInfo);
+      const { msgText, msgKeyboard } = genBandInfo(res, ctx);
+      replyWithMarkdown(msgText, msgKeyboard.extra());
+    }).catch((err) => {
+      console.error(err);
+      reply(i18n.t('error'));
+    });
+  }
+
+  if (data.startsWith('getBandPhoto:')) {
+    const bandId = Number(data.slice(13));
+    answerCbQuery();
+    getBand(bandId).then((res) => {
+      const { msgPhoto, msgCaption } = genBandPhoto(res);
+      const extra = Extra.inReplyTo(message.message_id);
+      extra.caption = msgCaption;
+      replyWithPhoto(msgPhoto, extra);
+    }).catch((err) => {
+      console.error(err);
+      reply(i18n.t('error'));
+    });
+  }
+
+  if (data.startsWith('getBandLogo:')) {
+    const bandId = Number(data.slice(12));
+    answerCbQuery();
+    getBand(bandId).then((res) => {
+      const { msgPhoto, msgCaption } = genBandLogo(res);
+      const extra = Extra.inReplyTo(message.message_id);
+      extra.caption = msgCaption;
+      replyWithDocument(msgPhoto, extra);
     }).catch((err) => {
       console.error(err);
       reply(i18n.t('error'));

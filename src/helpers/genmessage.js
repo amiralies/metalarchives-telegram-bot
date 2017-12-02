@@ -1,4 +1,5 @@
 const { Markup } = require('telegraf');
+const { normalizeLogoUrl } = require('../helpers/utils');
 
 const genBandResult = ({
   startIndex,
@@ -30,8 +31,9 @@ const genBandResult = ({
   return { msgText, msgKeyboard };
 };
 
-const genBandInfo = (band) => {
+const genBandInfo = (band, { i18n }) => {
   const {
+    id,
     name,
     genre,
     country,
@@ -43,17 +45,41 @@ const genBandInfo = (band) => {
     yearsActive,
   } = band;
 
-  let bandInfo = `***${name}***\n`;
-  bandInfo += `${'='.repeat(name.length)}\n\n`;
-  bandInfo += `Genre: ***${genre}***\n\n`;
-  bandInfo += `Country: ***${country}***\n\n`;
-  bandInfo += `Location: ***${location}***\n\n`;
-  bandInfo += `Themes: ***${themes}***\n\n`;
-  bandInfo += `Status: ***${status}***\n\n`;
-  bandInfo += `Label: ***${label}***\n\n`;
-  bandInfo += `Formed in: ***${formYear}***\n\n`;
-  bandInfo += `Years active: ***${yearsActive}***`;
-  return bandInfo;
+  let msgText = `***${name}***\n`;
+  msgText += `${'='.repeat(name.length)}\n\n`;
+  msgText += `Genre: ***${genre}***\n\n`;
+  msgText += `Country: ***${country}***\n\n`;
+  msgText += `Location: ***${location}***\n\n`;
+  msgText += `Themes: ***${themes}***\n\n`;
+  msgText += `Status: ***${status}***\n\n`;
+  msgText += `Label: ***${label}***\n\n`;
+  msgText += `Formed in: ***${formYear}***\n\n`;
+  msgText += `Years active: ***${yearsActive}***`;
+
+  const buttons = [];
+  const photoButton = Markup.callbackButton(i18n.t('photo'), `getBandPhoto:${id}`, false);
+  const logoButton = Markup.callbackButton(i18n.t('logo'), `getBandLogo:${id}`, false);
+  buttons.push(photoButton, logoButton);
+  const msgKeyboard = Markup.inlineKeyboard(buttons);
+
+  return { msgText, msgKeyboard };
 };
 
-module.exports = { genBandResult, genBandInfo };
+const genBandPhoto = ({ photoUrl, name }) => {
+  const msgPhoto = photoUrl;
+  const msgCaption = name;
+  return ({ msgPhoto, msgCaption });
+};
+
+const genBandLogo = ({ logoUrl, name }) => {
+  const msgPhoto = normalizeLogoUrl(logoUrl);
+  const msgCaption = name;
+  return ({ msgPhoto, msgCaption });
+};
+
+module.exports = {
+  genBandResult,
+  genBandInfo,
+  genBandPhoto,
+  genBandLogo,
+};
