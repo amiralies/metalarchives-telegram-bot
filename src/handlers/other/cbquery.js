@@ -6,6 +6,7 @@ const {
   genBandLogo,
   genBandDiscog,
 } = require('../../helpers/genmessage');
+const { incUserRequests } = require('../../helpers/utils');
 const { Extra } = require('telegraf');
 
 const cbQueryHandler = (ctx) => {
@@ -19,6 +20,7 @@ const cbQueryHandler = (ctx) => {
     replyWithPhoto,
     replyWithDocument,
     session,
+    from,
   } = ctx;
   const { data, message } = callbackQuery;
 
@@ -47,6 +49,7 @@ const cbQueryHandler = (ctx) => {
 
   if (data.startsWith('getBand:')) {
     const bandId = Number(data.slice(8));
+    incUserRequests(from);
     answerCbQuery();
     getBand(bandId).then((res) => {
       const { msgText, msgKeyboard } = genBandInfo(res, ctx);
@@ -59,6 +62,7 @@ const cbQueryHandler = (ctx) => {
 
   if (data.startsWith('getBandPhoto:')) {
     const bandId = Number(data.slice(13));
+    incUserRequests(from);
     answerCbQuery();
     getBand(bandId).then((res) => {
       const { msgPhoto, msgCaption } = genBandPhoto(res);
@@ -73,6 +77,7 @@ const cbQueryHandler = (ctx) => {
 
   if (data.startsWith('getBandLogo:')) {
     const bandId = Number(data.slice(12));
+    incUserRequests(from);
     answerCbQuery();
     getBand(bandId).then((res) => {
       const { msgPhoto, msgCaption } = genBandLogo(res);
@@ -87,6 +92,7 @@ const cbQueryHandler = (ctx) => {
 
   if (data.startsWith('getBandDiscog:')) {
     const bandId = Number(data.slice(14));
+    incUserRequests(from);
     answerCbQuery();
     getBandDiscog(bandId).then((res) => {
       const { msgTexts } = genBandDiscog(res);

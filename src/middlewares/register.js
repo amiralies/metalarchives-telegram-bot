@@ -2,18 +2,20 @@ const mongoose = require('mongoose');
 
 const User = mongoose.model('User');
 
-const registerHandler = (ctx, next) => {
-  if (ctx.session.registered === true) {
+const registerHandler = ({ from, session }, next) => {
+  if (session.registered === true) {
     return next();
   }
-  const user = new User({ id: ctx.from.id });
+  const name = (from.last_name) ? `${from.first_name} ${from.last_name}` : from.first_name;
+  const userObj = Object.assign({}, from, { name });
+  const user = new User(userObj);
   user.save().then(() => {
-    ctx.session.registered = true;
+    session.registered = true;
   }).catch((err) => {
     if (err.code === 11000) {
-      ctx.session.registered = true;
+      session.registered = true;
     } else {
-      ctx.session.registered = false;
+      session.registered = false;
       console.error(err);
     }
   });
