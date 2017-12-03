@@ -6,7 +6,7 @@ const {
   genBandLogo,
   genBandDiscog,
 } = require('../../helpers/genmessage');
-const { incUserRequests } = require('../../helpers/utils');
+const { incUserRequests, incBandRequests } = require('../../helpers/utils');
 const { Extra } = require('telegraf');
 
 const cbQueryHandler = (ctx) => {
@@ -52,6 +52,7 @@ const cbQueryHandler = (ctx) => {
     incUserRequests(from);
     answerCbQuery();
     getBand(bandId).then((res) => {
+      incBandRequests(res);
       const { msgText, msgKeyboard } = genBandInfo(res, ctx);
       replyWithMarkdown(msgText, msgKeyboard.extra());
     }).catch((err) => {
