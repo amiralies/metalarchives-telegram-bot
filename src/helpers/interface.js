@@ -23,6 +23,13 @@ const getBand = bandId => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
+const getRandomBand = () => new Promise((resolve, reject) => {
+  axios.get(`${API_URL}/bands/random`)
+    .then(({ data }) =>
+      resolve(data.data.band))
+    .catch(err => reject(err));
+});
+
 const getBandDiscog = bandId => new Promise((resolve, reject) => {
   axios.get(`${API_URL}/bands/${bandId}/discography`)
     .then(({ data }) =>
@@ -30,4 +37,9 @@ const getBandDiscog = bandId => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
-module.exports = { searchBand, getBand, getBandDiscog };
+module.exports = {
+  searchBand,
+  getBand,
+  getRandomBand,
+  getBandDiscog,
+};
