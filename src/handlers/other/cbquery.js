@@ -1,9 +1,10 @@
-const { searchBand, getBand } = require('../../helpers/interface');
+const { searchBand, getBand, getBandDiscog } = require('../../helpers/interface');
 const {
   genBandResult,
   genBandInfo,
   genBandPhoto,
   genBandLogo,
+  genBandDiscog,
 } = require('../../helpers/genmessage');
 const { Extra } = require('telegraf');
 
@@ -78,6 +79,21 @@ const cbQueryHandler = (ctx) => {
       const extra = Extra.inReplyTo(message.message_id);
       extra.caption = msgCaption;
       replyWithDocument(msgPhoto, extra);
+    }).catch((err) => {
+      console.error(err);
+      reply(i18n.t('error'));
+    });
+  }
+
+  if (data.startsWith('getBandDiscog:')) {
+    const bandId = Number(data.slice(14));
+    answerCbQuery();
+    getBandDiscog(bandId).then((res) => {
+      const { msgTexts } = genBandDiscog(res);
+      const extra = Extra.inReplyTo(message.message_id);
+      msgTexts.forEach((msgText) => {
+        replyWithMarkdown(msgText, extra);
+      });
     }).catch((err) => {
       console.error(err);
       reply(i18n.t('error'));

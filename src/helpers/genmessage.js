@@ -59,7 +59,8 @@ const genBandInfo = (band, { i18n }) => {
   const buttons = [];
   const photoButton = Markup.callbackButton(i18n.t('photo'), `getBandPhoto:${id}`, false);
   const logoButton = Markup.callbackButton(i18n.t('logo'), `getBandLogo:${id}`, false);
-  buttons.push(photoButton, logoButton);
+  const discogButton = Markup.callbackButton(i18n.t('discography'), `getBandDiscog:${id}`, false);
+  buttons.push([photoButton, logoButton], [discogButton]);
   const msgKeyboard = Markup.inlineKeyboard(buttons);
 
   return { msgText, msgKeyboard };
@@ -77,9 +78,42 @@ const genBandLogo = ({ logoUrl, name }) => {
   return ({ msgPhoto, msgCaption });
 };
 
+const genBandDiscog = ({ discography }) => {
+  let msgText = '';
+  const msgTexts = [];
+  discography.forEach(({ name, type, year }) => {
+    if (type === 'Full-length') {
+      msgText = msgText.concat(`***${name} - (${type}) - ${year}***\n\n`);
+    } else msgText = msgText.concat(`${name} - (${type}) - ${year}\n\n`);
+  });
+
+  // it checks if msg length is more than 4096 then split it into around 3500 length characters
+  if (msgText.length > 4096) {
+    let lastIndex = 0;
+    let breakPoint = 0;
+    let totalMsgLength = 0;
+    for (let i = 0; i < msgText.length; i += 1) {
+      breakPoint += 1;
+      if (breakPoint > 3500) {
+        if (msgText.substr(i, 2) === '\n\n') {
+          breakPoint = 0;
+          msgTexts.push(msgText.slice(lastIndex, i));
+          totalMsgLength += i - lastIndex;
+          lastIndex = i;
+        }
+      }
+    }
+    if (totalMsgLength < msgText.length) {
+      msgTexts.push(msgText.slice(lastIndex, msgText.length));
+    }
+  } else msgTexts.push(msgText);
+  return { msgTexts };
+};
+
 module.exports = {
   genBandResult,
   genBandInfo,
   genBandPhoto,
   genBandLogo,
+  genBandDiscog,
 };

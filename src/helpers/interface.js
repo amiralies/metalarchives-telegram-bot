@@ -23,4 +23,11 @@ const getBand = bandId => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
-module.exports = { searchBand, getBand };
+const getBandDiscog = bandId => new Promise((resolve, reject) => {
+  axios.get(`${API_URL}/bands/${bandId}/discography`)
+    .then(({ data }) =>
+      resolve(data.data))
+    .catch(err => reject(err));
+});
+
+module.exports = { searchBand, getBand, getBandDiscog };
