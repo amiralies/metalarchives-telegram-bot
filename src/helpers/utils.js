@@ -10,7 +10,7 @@ const normalizeLogoUrl = (logoUrl) => {
 };
 
 const incUserRequests = ({ id }) =>
-  User.update({ id }, { $inc: { total_requests: 1 } }).exec();
+  User.findOneAndUpdate({ id }, { $inc: { total_requests: 1 } }).exec();
 
 const incBandRequests = (band) => {
   const { id } = band;
