@@ -11,7 +11,9 @@ const handlers = require('./src/handlers');
 const middlewares = require('./src/middlewares');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
-const redisSession = new RedisSession({ store: { host: '127.0.0.1', port: 6379 } });
+const redisSession = new RedisSession({
+  store: { host: config.REDIS_HOST, port: config.REDIS_PORT },
+});
 const telegrafI18n = new TelegrafI18n({
   directory: path.resolve(__dirname, 'config/locales'),
   defaultLanguage: 'en',
