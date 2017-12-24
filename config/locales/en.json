@@ -3,7 +3,7 @@
   "start": "Hello ,\nto get started send /help\n\nor start searching for a band by sending /searchband",
   "choose_lang": "Choose your language",
   "lang_changed": "Language changed.",
-  "help": "Help",
+  "help": "***Commands :*** \n/searchband ___: search for a band by name___\n\n/randomband ___: get a random band___ \n\n/lang ___: change language of the bot___ \n\n /help ___: Help!___",
   "search_band": "Ok, send me something to search like :\n\n***Nevermore***\n***Dream Theater***",
   "not_found": "Nothing found for your query :(",
   "error": "Something went wrong :(",
