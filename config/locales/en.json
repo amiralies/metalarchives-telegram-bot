@@ -3,7 +3,7 @@
   "start": "Hello ,\nto get started send /help\n\nor start searching for a band by sending /searchband",
   "choose_lang": "Choose your language",
   "lang_changed": "Language changed.",
-  "help": "***Commands :*** \n/searchband ___: search for a band by name___\n\n/randomband ___: get a random band___ \n\n/lang ___: change language of the bot___ \n\n /help ___: Help!___",
+  "help": "***Commands :*** \n/searchband ___: search for a band by name___\n\n/randomband ___: get a random band___ \n\n/lang ___: change language of the bot___ \n\n/about: ___shows some info about bot___\n\n /help ___: Help!___",
   "search_band": "Ok, send me something to search like :\n\n***Nevermore***\n***Dream Theater***",
   "not_found": "Nothing found for your query :(",
   "error": "Something went wrong :(",
@@ -12,5 +12,6 @@
   "prev": "Previous",
   "photo": "Photo",
   "logo": "Logo",
-  "discography": "Discography"
+  "discography": "Discography",
+  "about": "Its an open srouce telegram bot for [Encyclopaedia Metallum](https://www.metal-archives.com) written in nodejs using [telegraf](http://telegraf.js.org). All of the data are extracted from www.metal-archives.com . you can contact me via @SieveR .\n\n***Dev Channel:*** @MetalArchives\n***Developer:*** @SieveR \n***Github Repo:*** [metalarchives-telegram-bot](https://github.com/amiralies/metalarchives-telegram-bot)"
 }

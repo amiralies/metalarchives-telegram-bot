@@ -3,7 +3,7 @@
   "start": "سلام!\n اگه نیاز به کمک داری /help رو بفرست.\n\nاگه نه برای سرچ کردن با /searchband شروع کن.",
   "choose_lang": "زبان خود را انتخاب کنید",
   "lang_changed": "زبان عوض شد.",
-  "help": "***دستورات :*** \n/searchband ___: جستجو برای بند با اسم___\n\n/randomband ___: یه بند تصادفی نشون میده___ \n\n/lang ___: عوض کردن زبان بات___ \n\n /help ___: هلپ!___",
+  "help": "***دستورات :*** \n/searchband ___: جستجو برای بند با اسم___\n\n/randomband ___: یه بند تصادفی نشون میده___ \n\n/lang ___: عوض کردن زبان بات___ \n\n/about ___: یه سری اطلاعات در مورد بات___ \n\n /help ___: هلپ!___",
   "search_band": "یه چیزی برای سرچ کردن بفرس مثل : \n\n***Nevermore*** \n***Dream Theater***",
   "not_found": "چیزی پبدا نشد :(",
   "error": "یه مشکلی پیش اومد :(",
@@ -12,5 +12,6 @@
   "prev": "قبلی",
   "photo": "عکس",
   "logo": "لوگو",
-  "discography": "دیسکوگرافی"
+  "discography": "دیسکوگرافی",
+  "about": "یه ربات برای جستجو در metalarchives تو تلگرام . کلیه اطلاعات از www.metal-archives.com استخراج میشه. تماس با من :‌@SieveR .\n\n***Dev Channel:*** @MetalArchives\n***Developer:*** @SieveR \n***Github Repo:*** [metalarchives-telegram-bot](https://github.com/amiralies/metalarchives-telegram-bot)"
 }
