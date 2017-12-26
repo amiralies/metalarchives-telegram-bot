@@ -1,0 +1,8 @@
+{
+  "name": "ma-bot",
+  "script": "app.js",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "restart_delay": 100
+}
