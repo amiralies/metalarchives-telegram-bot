@@ -28,4 +28,8 @@ bot.use(telegrafI18n.middleware());
 bot.use(middlewares);
 bot.use(handlers.commands, handlers.messages, handlers.other);
 
+bot.catch((err) => {
+  console.error(err);
+});
+
 bot.startPolling();
