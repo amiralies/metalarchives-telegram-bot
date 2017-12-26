@@ -5,4 +5,4 @@ COPY package*.json ./
 RUN npm install -g pm2 
 RUN npm install
 COPY . .
-CMD pm2-docker --format process.json
+CMD sleep 1s && pm2-docker --format process.json
