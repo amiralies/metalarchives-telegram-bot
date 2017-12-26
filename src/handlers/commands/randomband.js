@@ -1,3 +1,4 @@
+const { chatStates } = require('../../../config');
 const { getRandomBand } = require('../../helpers/interface');
 const { genBandInfo } = require('../../helpers/genmessage');
 const { incUserRequests } = require('../../helpers/utils');
@@ -8,7 +9,9 @@ const randombandHandler = (ctx) => {
     reply,
     replyWithMarkdown,
     i18n,
+    session,
   } = ctx;
+  session.chatState = chatStates.AWAITING_COMMAND;
   incUserRequests(from);
   getRandomBand().then((res) => {
     const { msgText, msgKeyboard } = genBandInfo(res, ctx);
