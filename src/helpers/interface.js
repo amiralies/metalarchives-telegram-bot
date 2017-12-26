@@ -37,9 +37,17 @@ const getBandDiscog = bandId => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
+const getBandCount = () => new Promise((resolve, reject) => {
+  axios.get(`${API_URL}/bands`)
+    .then(({ data }) =>
+      resolve(data.data.totalResult))
+    .catch(err => reject(err));
+});
+
 module.exports = {
   searchBand,
   getBand,
   getRandomBand,
   getBandDiscog,
+  getBandCount,
 };
