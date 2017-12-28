@@ -1,0 +1,44 @@
+version: '3'
+services:
+  api:
+    build: ./metalarchives-api
+    container_name: "ma-api"
+    depends_on:
+      - mongodb
+    networks:
+      - default
+    environment:
+      - DB_HOST=mongodb
+      - DB_PORT=27017
+      - DB_CATCH=${DB_CATCH}
+  bot:
+    build: ./metalarchives-telegram-bot
+    container_name: "ma-bot"
+    depends_on:
+      - mongodb
+      - redis
+      - api
+    networks:
+      - default
+    environment:
+      - DB_HOST=mongodb
+      - DB_PORT=27017
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - API_URL=api:3000
+      - BOT_TOKEN=<bot token goes here>
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    volumes:
+      - ./data/db:/data/db
+    networks:
+      - default
+  redis:
+    image: redis:latest
+    container_name: "redis"
+    networks:
+      - default
+networks:
+  default:
+    driver: bridge
