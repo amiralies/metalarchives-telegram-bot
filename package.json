@@ -1,6 +1,6 @@
 {
   "name": "metalarchives-telegram-bot",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "metalarchives telegram bot",
   "main": "app.js",
   "scripts": {
