@@ -1,9 +1,9 @@
 {
   "lang_name": "English",
-  "start": "Hello ,\nto get started send /help\n\nor start searching for a band by sending /searchband",
+  "start": "Hello ,\nto get started send /help\nor start searching for a band by sending /searchband\n\nabout the bot : /about\nChange language : /lang\nFollow @MetalArchives to get updates!",
   "choose_lang": "Choose your language",
   "lang_changed": "Language changed.",
-  "help": "***Commands :*** \n/searchband ___: search for a band by name___\n\n/randomband ___: get a random band___ \n\n/lang ___: change language of the bot___ \n\n/about: ___shows some info about bot___\n\n /help ___: Help!___",
+  "help": "***Commands :*** \n\n/searchband ___: search for a band by name___\n\n/randomband ___: get a random band___ \n\n/lang ___: change language of the bot___ \n\n/about: ___shows some info about bot___\n\n /help ___: Help!___\n\nGot questions? feel free to ask me @SieveR",
   "search_band": "Ok, send me something to search like :\n\n***Nevermore***\n***Dream Theater***",
   "not_found": "Nothing found for your query :(",
   "error": "Something went wrong :(",
