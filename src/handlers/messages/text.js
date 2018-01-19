@@ -12,7 +12,7 @@ const textHandler = (ctx) => {
   } = ctx;
 
   switch (session.chatState) {
-    case chatStates.AWAITING_BAND_NAME:
+    case chatStates.AWAITING_BAND_QUERY:
       session.chatState = chatStates.AWAITING_COMMAND;
       return searchBand(message.text, 0).then((res) => {
         const { msgText, msgKeyboard } = genBandResult(res, ctx);

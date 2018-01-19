@@ -13,6 +13,6 @@ module.exports = {
   API_URL: `http://${API_URL}`,
   chatStates: {
     AWAITING_COMMAND: 'AWAITING_COMMAND',
-    AWAITING_BAND_NAME: 'AWAITING_BAND_NAME',
+    AWAITING_BAND_QUERY: 'AWAITING_BAND_QUERY',
   },
 };
