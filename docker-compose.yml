@@ -31,7 +31,7 @@ services:
     image: mongo:latest
     container_name: "mongodb"
     volumes:
-      - ./data/db:/data/db
+      - ./data:/data
     networks:
       - default
   redis:
