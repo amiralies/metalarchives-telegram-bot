@@ -13,5 +13,7 @@
   "photo": "عکس",
   "logo": "لوگو",
   "discography": "دیسکوگرافی",
-  "about": "یه ربات برای جستجو در metalarchives تو تلگرام . کلیه اطلاعات از www.metal-archives.com استخراج میشه. تماس با من :‌@SieveR .\n\n***Dev Channel:*** @MetalArchives\n***Developer:*** @SieveR \n***Github Repo:*** [metalarchives-telegram-bot](https://github.com/amiralies/metalarchives-telegram-bot)"
+  "about": "یه ربات برای جستجو در metalarchives تو تلگرام . کلیه اطلاعات از www.metal-archives.com استخراج میشه. تماس با من :‌@SieveR .\n\n***Dev Channel:*** @MetalArchives\n***Developer:*** @SieveR \n***Github Repo:*** [metalarchives-telegram-bot](https://github.com/amiralies/metalarchives-telegram-bot)",
+  "search_song": "مشخصات آهنگ رو با فرمت زیر بفرس:\n***اسم آهنگ***\n***اسم بند***",
+  "lyrics_not_available": "لیریکس در دسترس نیست :("
 }

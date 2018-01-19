@@ -9,6 +9,7 @@ const searchbandHandler = require('./searchband');
 const randombandHandler = require('./randomband');
 const aboutHandler = require('./about');
 const bandcountHandler = require('./bandcount');
+const lyricsHandler = require('./lyrics');
 
 composer.command('start', startHandler);
 composer.command('help', helpHandler);
@@ -17,5 +18,6 @@ composer.command('searchband', searchbandHandler);
 composer.command('randomband', randombandHandler);
 composer.command('about', aboutHandler);
 composer.command('bandcount', bandcountHandler);
+composer.command('lyrics', lyricsHandler);
 
 module.exports = composer;

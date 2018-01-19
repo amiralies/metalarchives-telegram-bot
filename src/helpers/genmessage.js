@@ -1,6 +1,36 @@
 const { Markup } = require('telegraf');
 const { normalizeLogoUrl } = require('../helpers/utils');
 
+const genSongResult = ({
+  startIndex,
+  remaining,
+  songs,
+}, { i18n }) => {
+  let msgText = '';
+  const songButtons = [];
+  const handleButtons = [];
+
+  songs.forEach((song, i) => {
+    msgText = msgText.concat(`___${i + 1}___. ***${song.title}*** - ***${song.band}*** : ___${song.type}___\n\n`);
+    const getLyricsAction = `getLyrics:${song.lyricsId}`;
+    songButtons.push(Markup.callbackButton((i + 1).toString(), getLyricsAction, false));
+  });
+
+  if (startIndex > 0) {
+    const prevAction = `search_song:${startIndex - 5}`;
+    const prevButton = Markup.callbackButton(i18n.t('prev'), prevAction, false);
+    handleButtons.push(prevButton);
+  }
+  if (remaining > 0) {
+    const nextAction = `search_song:${startIndex + 5}`;
+    const nextButton = Markup.callbackButton(i18n.t('next'), nextAction, false);
+    handleButtons.push(nextButton);
+  }
+
+  const msgKeyboard = Markup.inlineKeyboard([songButtons, handleButtons]);
+  return { msgText, msgKeyboard };
+};
+
 const genBandResult = ({
   startIndex,
   remaining,
@@ -116,4 +146,5 @@ module.exports = {
   genBandPhoto,
   genBandLogo,
   genBandDiscog,
+  genSongResult,
 };

@@ -13,5 +13,7 @@
   "photo": "Photo",
   "logo": "Logo",
   "discography": "Discography",
-  "about": "Its an open srouce telegram bot for [Encyclopaedia Metallum](https://www.metal-archives.com) written in nodejs using [telegraf](http://telegraf.js.org). All of the data are extracted from www.metal-archives.com . you can contact me via @SieveR .\n\n***Dev Channel:*** @MetalArchives\n***Developer:*** @SieveR \n***Github Repo:*** [metalarchives-telegram-bot](https://github.com/amiralies/metalarchives-telegram-bot)"
+  "about": "Its an open srouce telegram bot for [Encyclopaedia Metallum](https://www.metal-archives.com) written in nodejs using [telegraf](http://telegraf.js.org). All of the data are extracted from www.metal-archives.com . you can contact me via @SieveR .\n\n***Dev Channel:*** @MetalArchives\n***Developer:*** @SieveR \n***Github Repo:*** [metalarchives-telegram-bot](https://github.com/amiralies/metalarchives-telegram-bot)",
+  "search_song": "Send me song info in following format:\n***Song Title***\n***Song Band Name***",
+  "lyrics_not_available": "Lyrics not available :("
 }
