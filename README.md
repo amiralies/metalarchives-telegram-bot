@@ -23,6 +23,7 @@ npm install
 5. Set env vars (do changes if necessary) :
 ```sh
 export BOT_TOKEN=<bot_token>
+export BOT_USERNAME=<bot_username>
 export API_URL=localhost:3000
 
 export DB_HOST=localhost

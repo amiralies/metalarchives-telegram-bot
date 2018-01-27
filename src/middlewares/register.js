@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
 const registerHandler = ({ from, session }, next) => {
-  if (session.registered === true) {
+  if (!session || session.registered === true) {
     return next();
   }
   const name = (from.last_name) ? `${from.first_name} ${from.last_name}` : from.first_name;

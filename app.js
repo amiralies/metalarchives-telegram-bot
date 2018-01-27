@@ -10,7 +10,8 @@ const config = require('./config');
 const handlers = require('./src/handlers');
 const middlewares = require('./src/middlewares');
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+const { BOT_TOKEN, BOT_USERNAME } = process.env;
+const bot = new Telegraf(BOT_TOKEN, { username: BOT_USERNAME });
 const redisSession = new RedisSession({
   store: { host: config.REDIS_HOST, port: config.REDIS_PORT },
 });
