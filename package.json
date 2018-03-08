@@ -1,6 +1,6 @@
 {
   "name": "metalarchives-telegram-bot",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "metalarchives telegram bot",
   "main": "app.js",
   "scripts": {
@@ -20,6 +20,7 @@
     "mongoose": "^4.13.5",
     "telegraf": "^3.16.4",
     "telegraf-i18n": "^6.0.4",
+    "telegraf-session-local": "0.0.4",
     "telegraf-session-redis": "^5.0.0"
   }
 }

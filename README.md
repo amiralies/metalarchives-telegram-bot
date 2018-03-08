@@ -29,6 +29,8 @@ export API_URL=http://localhost:3000
 export MONGO_URL=mongodb://mongodb:27017/metalarchives-bot
 
 export REDIS_URL=redis://localhost:6379
+#if you prefer local session
+export LOCAL_SESSION=true
 ```
 
 6. Start the bot :

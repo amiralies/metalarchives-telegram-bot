@@ -4,6 +4,7 @@ const {
   API_URL,
   BOT_TOKEN,
   BOT_USERNAME,
+  LOCAL_SESSION,
 } = process.env;
 
 module.exports = {
@@ -12,6 +13,7 @@ module.exports = {
   apiUrl: API_URL || 'http://localhost:3000',
   botToken: BOT_TOKEN,
   botUsername: BOT_USERNAME,
+  useLocalSession: (LOCAL_SESSION === 'true'),
   chatStates: {
     AWAITING_COMMAND: 'AWAITING_COMMAND',
     AWAITING_BAND_QUERY: 'AWAITING_BAND_QUERY',
