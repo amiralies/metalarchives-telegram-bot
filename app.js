@@ -10,10 +10,9 @@ const config = require('./config');
 const handlers = require('./src/handlers');
 const middlewares = require('./src/middlewares');
 
-const { BOT_TOKEN, BOT_USERNAME } = process.env;
-const bot = new Telegraf(BOT_TOKEN, { username: BOT_USERNAME });
+const bot = new Telegraf(config.botToken, { username: config.botUsername });
 const redisSession = new RedisSession({
-  store: { host: config.REDIS_HOST, port: config.REDIS_PORT },
+  store: { url: config.redisUrl },
 });
 const telegrafI18n = new TelegrafI18n({
   directory: path.resolve(__dirname, 'config/locales'),
@@ -22,7 +21,7 @@ const telegrafI18n = new TelegrafI18n({
 });
 
 mongoose.Promise = bluebird;
-mongoose.connect(config.DB_CONNECTION_STRING, { useMongoClient: true });
+mongoose.connect(config.mongoUrl, { useMongoClient: true });
 
 bot.use(redisSession.middleware());
 bot.use(telegrafI18n.middleware());

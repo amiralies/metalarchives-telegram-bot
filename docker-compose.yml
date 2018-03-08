@@ -8,8 +8,7 @@ services:
     networks:
       - default
     environment:
-      - DB_HOST=mongodb
-      - DB_PORT=27017
+      - MONGO_URL=mongodb://mongodb:27017/metalarchives-api
       - DB_CATCH=${DB_CATCH}
   bot:
     build: ./metalarchives-telegram-bot
@@ -21,11 +20,9 @@ services:
     networks:
       - default
     environment:
-      - DB_HOST=mongodb
-      - DB_PORT=27017
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - API_URL=api:3000
+      - MONGO_URL=mongodb://mongodb:27017/metalarchives-bot
+      - REDIS_URL=redis://redis:6379
+      - API_URL=http://api:3000
       - BOT_TOKEN=<bot token goes here>
       - BOT_USERNAME=<bot username goes here>
   mongodb:

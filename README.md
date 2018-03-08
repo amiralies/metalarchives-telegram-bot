@@ -24,13 +24,11 @@ npm install
 ```sh
 export BOT_TOKEN=<bot_token>
 export BOT_USERNAME=<bot_username>
-export API_URL=localhost:3000
+export API_URL=http://localhost:3000
 
-export DB_HOST=localhost
-export DB_PORT=27017
+export MONGO_URL=mongodb://mongodb:27017/metalarchives-bot
 
-export REDIS_HOST=localhost
-export REDIS_PORT=6379
+export REDIS_URL=redis://localhost:6379
 ```
 
 6. Start the bot :
